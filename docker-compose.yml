@@ -1,0 +1,29 @@
+version: "2.4"
+
+services:
+  mssql:
+    container_name: dbserver
+    image: mcr.microsoft.com/mssql/server:latest
+    environment: 
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=$SA_PASSWORD
+    ports: 
+      - 1433:1433
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$$SA_PASSWORD" -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 3s
+      retries: 25
+      start_period: 10s
+
+  mssql-tools:
+    container_name: dbserver_insert_data
+    image: mcr.microsoft.com/mssql-tools:latest
+    environment: 
+      - SA_PASSWORD=$SA_PASSWORD
+    volumes: 
+      - ./SQL:/SQL
+    command: bash /SQL/mssql_insert.sh
+    depends_on: 
+      mssql:
+        condition: service_healthy
