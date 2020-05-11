@@ -3,6 +3,8 @@
 ## My Goal
 
 - Need to use for store my expense data everyday
+- Try new thing
+- Refresh programming knowledge
 
 ## Todo
 
