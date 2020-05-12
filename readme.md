@@ -9,7 +9,8 @@
 ## Todo
 
 - [X] Create docker-compose with SQL insertion script
-- [ ] Create Line Bot for recieve new massage
+- [ ] Create Stub server for Line Bot
+- [ ] Create Line Bot for receive new massage
 - [ ] Create mapping data volume from docker to host machine
 - [ ] Map docker network to host network when deploy
 - [ ] Change SQL Server settings from Develop to Production
