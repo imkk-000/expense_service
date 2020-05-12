@@ -5,6 +5,7 @@ CREATE TABLE [money_app_v1].[dbo].[expenses]
     expense_amount MONEY NOT NULL DEFAULT 0.00,
     expense_channel SMALLINT NOT NULL DEFAULT NULL,
     expense_note NVARCHAR(500) NULL DEFAULT NULL,
+    expense_user UNIQUEIDENTIFIER NULL DEFAULT NULL,
     expense_ts DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
