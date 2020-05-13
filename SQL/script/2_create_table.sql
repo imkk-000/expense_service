@@ -11,9 +11,23 @@ CREATE TABLE [money_app_v1].[dbo].[expenses]
     expense_ts DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE [money_app_v1].[dbo].[expenses_channel]
+CREATE TABLE [money_app_v1].[dbo].[expense_channels]
 (
     expense_channel_id INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
     expense_channel_description VARCHAR(20) NOT NULL,
-    expense_channel_created_time  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    expense_channel_created_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE [money_app_v1].[dbo].[expense_froms]
+(
+    expense_from_id INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+    expense_from_description VARCHAR(20) NOT NULL,
+    expense_from_created_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE [money_app_v1].[dbo].[expense_types]
+(
+    expense_type_id INT PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+    expense_type_description VARCHAR(20) NOT NULL,
+    expense_type_created_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
